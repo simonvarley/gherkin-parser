@@ -17,22 +17,15 @@ import gherkin.ast.Scenario;
 import gherkin.ast.ScenarioDefinition;
 import gherkin.ast.Step;
 import gherkin.ast.Tag;
-import gherkin.pickles.Pickle;
-//import gherkin.pickles.Pickle;
 import gherkin.util.FixJava;
 
 import org.junit.Test;
 
-public class GerkTest2 {
+public class GerkParsingTests {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void test1() throws UnsupportedEncodingException, FileNotFoundException, RuntimeException {
-		String path = "C:\\Projects\\Testdata\\gerktest.feature";
+	public void basicAstParsingTest() throws UnsupportedEncodingException, FileNotFoundException, RuntimeException {
+		String path = "src\\test\\resources\\gerktest.feature";
 		String gherkin = FixJava.readReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
 
 		Parser<GherkinDocument> parser = new Parser<>(new AstBuilder());
@@ -49,8 +42,8 @@ public class GerkTest2 {
 	}
 
 	@Test
-	public void test2() throws UnsupportedEncodingException, FileNotFoundException, RuntimeException {
-		String path = "C:\\Projects\\Testdata\\gerktest.feature";
+	public void fullFeatureAndScenarioTags() throws UnsupportedEncodingException, FileNotFoundException, RuntimeException {
+		String path = "src\\test\\resources\\gerktest.feature";
 		String gherkin = FixJava.readReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
 
 		Parser<GherkinDocument> parser = new Parser<>(new AstBuilder());
@@ -93,18 +86,4 @@ public class GerkTest2 {
 			}
 		}
 	}
-
-	@Test
-	public void test3() throws UnsupportedEncodingException, FileNotFoundException, RuntimeException {
-		// Java
-
-		String path = "C:\\Projects\\Testdata\\gerktest.feature";
-		String gherkin = FixJava.readReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
-
-		Parser<GherkinDocument> parser = new Parser<>(new AstBuilder());
-		GherkinDocument gherkinDocument = parser.parse(gherkin);
-		List<Pickle> pickles = new Compiler().compile(gherkinDocument, "C:\\Projects\\Testdata\\gerktest.feature");
-		assertEquals( 10, pickles.size() );
-	}
-
 }
