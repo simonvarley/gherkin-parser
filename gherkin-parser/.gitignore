@@ -13,6 +13,8 @@ gherkin-parser/gherkin-parser.iml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/libraries/*
+../.idea/*
 
 # AWS User-specific
 .idea/**/aws.xml
@@ -77,3 +79,4 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+/gherkin-parser.iml
